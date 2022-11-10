@@ -21,12 +21,7 @@ let options = ['Tashkent', 'Amaan', 'Kuwait City', 'Nairobi']
 let correctAnswerIndex = 1 ;
 
 function isAnswerCorrect (index){
-  if (options[index] === 'Amaan'){
-    return true
-  }
-  else {
-    return false
-  }
+  return index === correctAnswerIndex
 }
 
 function getCorrectAnswer (){
@@ -37,20 +32,15 @@ function getCorrectAnswer (){
 
 - Organize using object
 ```js
-let testData = {
+let question = {
   title : 'Where is the capital of Jordan' ,
   options : ['Tashkent', 'Amaan', 'Kuwait City', 'Nairobi'] ,
   correctAnswerIndex : 1 ,
   isAnswerCorrect (index){
-    if (testData.options[index] === 'Amaan'){
-      return true
-    }
-    else {
-      return false
-    }
+    return index === question.correctAnswerIndex
   },
   getCorrectAnswer (){
-    return testData.options[1]
+    return question.options[question.correctAnswerIndex];
   }
 }
 ```
@@ -60,22 +50,17 @@ let testData = {
 - Use a function to create object
 ```js
 function createQuiz (title , options , correctAnswerIndex) {
-  let obj = {}
-  obj.title = title ;
-  obj.options = options ;
-  obj.correctAnswerIndex = 1 ;
-  obj.isAnswerCorrect = function (index) {
-    if (obj.options[index] === 'Amaan'){
-      return true
-    }
-    else {
-      return false
-    }
+  let question = {}
+  question.title = title ;
+  question.options = options ;
+  question.correctAnswerIndex = 1 ;
+  question.isAnswerCorrect = function (index){
+    return index === question.correctAnswerIndex
   },
-  obj.getCorrectAnswer = function (){
-    return obj.options[1]
+  question.getCorrectAnswer = function (){
+    return question.options[question.correctAnswerIndex];
   }
-  return obj;
+  return question ;
 }
 
 ```
@@ -85,22 +70,17 @@ function createQuiz (title , options , correctAnswerIndex) {
 - Convert the function to use `this` keyword
 ```js
 function createQuiz (title , options , correctAnswerIndex) {
-  let obj = {}
-  obj.title = title ;
-  obj.options = options ;
-  obj.correctAnswerIndex = 1 ;
-  obj.isAnswerCorrect = function (index) {
-    if (this.options[index] === 'Amaan'){
-      return true
-    }
-    else {
-      return false
-    }
+  let question = {}
+  question.title = title ;
+  question.options = options ;
+  question.correctAnswerIndex = 1 ;
+  question.isAnswerCorrect = function (index){
+    return index === this.correctAnswerIndex
   },
-  obj.getCorrectAnswer = function (){
-    return this.options[1]
+  question.getCorrectAnswer = function (){
+    return this.options[this.correctAnswerIndex];
   }
-  return obj;
+  return question ;
 }
 
 ```
