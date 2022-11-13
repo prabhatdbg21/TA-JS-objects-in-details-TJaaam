@@ -5,16 +5,16 @@ function createProjects (name, id , noOfProjects) {
     project.id = id ;
     project.noOfProjects = noOfProjects ;
     project.getProjects = function(){
-        return this.noOfProjects
+        return project.noOfProjects
     }
     project.changeName = function (newName) {
-        return this.name = newName ;
+        return project.name = newName ;
     }
     project.incrementProject = function( value = 1){
-        return this.noOfProjects += value ; 
+        return project.noOfProjects += value ; 
     }
     project.decrementProject = function(value = 1){
-        return this.noOfProjects -= value ;
+        return project.noOfProjects -= value ;
     }
     return project ;
 }
@@ -22,14 +22,7 @@ function createProjects (name, id , noOfProjects) {
 
 
 // Object.create (prototypal pattern)
-function createProjects (name, id , noOfProjects) {
-    let project = Object.create(createProjects.prototype);
-    project.name = name ;
-    project.id = id ;
-    project.noOfProjects = noOfProjects ;
-    return project ;
-}
-createProjects.prototype = {
+let projectMethods = {
     getProjects : function(){
         return this.noOfProjects
     },
@@ -44,6 +37,13 @@ createProjects.prototype = {
     }
 }
 
+function createProjects (name, id , noOfProjects) {
+    let project = Object.create(projectMethods);
+    project.name = name ;
+    project.id = id ;
+    project.noOfProjects = noOfProjects ;
+    return project ;
+}
 
 
 /*
