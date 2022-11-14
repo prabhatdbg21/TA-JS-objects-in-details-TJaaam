@@ -26,16 +26,16 @@ let personTwo = createUser('Ankit' , 28)
 */
 
 // 4. Change the code inside `createUser` in such a way that the methods `sayHello` doesn't have to be in all object. Use the prototypal nature. (Hint Object.create())
-function createUser (name , age){
-    let user = Object.create (createUser.prototype)
-    user.name = name ;
-    user.age = age ;
-    return user
-}
-createUser.prototype = {
+let userMethods = {
     sayHello : function (){
         alert (`Welcome ${this.name}`)
     }
+}
+function createUser (name , age){
+    let user = Object.create (userMethods)
+    user.name = name ;
+    user.age = age ;
+    return user
 }
 
 
