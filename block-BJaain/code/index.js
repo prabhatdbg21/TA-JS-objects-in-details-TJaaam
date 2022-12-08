@@ -44,7 +44,7 @@ var myObject = {};
 myObject.someMethod = function () {
   console.log(this);
 };
-myObject.someMethod(); // window
+myObject.someMethod(); // myObject
 
 // ------------
 
@@ -67,14 +67,14 @@ person2.displayName(); // Name: Paul Adams
 function foo() {
   'use strict';
   console.log('Simple function call');
-  console.log(this === window);
+  console.log(this === window); // false
 }
 
 let user = {
   count: 10,
   foo: foo,
   foo1: function () {
-    console.log(this === window);
+    console.log(this === window); 
   },
 };
 
@@ -150,7 +150,7 @@ obj.getThis2.call(a); // a
 obj.getThis3(); // Window
 
 // Output
-obj.getThis4(); // 
+obj.getThis4(); // obj
 
 // -------------
 
@@ -187,8 +187,8 @@ console.log(person.print()); // Jay Person
 let name1 = person.print;
 let name2 = person.details;
 
-console.log(name1()); // undefine
-console.log(name2.print()); //  Jay Details
+console.log(name1()); // ""
+console.log(name2.print()); //  error
 
 // --------
 
