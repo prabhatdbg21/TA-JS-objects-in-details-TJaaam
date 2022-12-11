@@ -43,7 +43,7 @@ console.log(user3.sayHello()); //  error  user3.sayHello is not a function
 console.log(userSayHello.apply(user3)); // Hello Bran
 console.log(userSayHello.call(user3)); // Hello Bran
 console.log(typeof new MainUser()); // object
-console.log(typeof new MainUser()); // object
+console.log(typeof new MainUser); // object
 console.log(new MainUser().sayHello()); // Hello Tyrion
 console.log(new MainUser().sayHello.call(user2)); // Hello Arya
 console.log(new MainUser().sayHello.call(user)); // Hello John
