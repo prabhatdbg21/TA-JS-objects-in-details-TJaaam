@@ -4,6 +4,14 @@
 */
 
 // myMap function goes here
+Array.prototype.myMap = function (arr , mapFunc){
+  const mapArr = [] ;
+  for (let i = 0 ; i < arr.length ; i++) {
+    const result = mapFunc(arr[i] , i , arr) ;
+    mapArr.push(result) ;
+  }
+  return mapArr ;
+}
 
 // Test the myMap function you created above
 
