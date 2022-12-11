@@ -24,7 +24,7 @@ console.log(vicky.age); // -> Logs 24
 /*** CHALLENGE 1 of 3 ***/
 
 var personStore = {
-  greet : function () {
+  greet() {
     console.log ("hello")
   }
 };
@@ -49,18 +49,13 @@ console.log(sandra.age); //-> Logs 26
 sandra.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
-/* Without editing the code you've already written, add an `introduce` method to the `personStore` 
-object that logs "Hi, my name is [name]". */
-// add code here
 
-/*
-personStore.prototype.introduce = function (){
-  console.log (`Hi, my name is ${naaame}`)
+personStore.introduce = function (){
+  console.log (`Hi, my name is ${this.name}`)
 }
-*/
 
 
-// sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 /****************************************************************
                     USING THE 'NEW' KEYWORD
@@ -71,6 +66,9 @@ personStore.prototype.introduce = function (){
 function PersonConstructor() {
   this.greet = function (){
     console.log ("hello")
+  }
+  this.introduce = function (){
+    console.log (`Hi, my name is ${this.name}`)
   }
 }
 
@@ -95,9 +93,11 @@ console.log(mike.age); //-> Logs 30
 mike.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
+/*  // this was done by me before uploading 
 PersonConstructor.prototype.introduce = function (){
   console.log (`Hi, my name is ${this.name}`)
 }
+*/
 
 
 mike.introduce(); // -> Logs 'Hi, my name is Mike'
@@ -155,19 +155,22 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore = {};
-Object.setPrototypeOf ( adminFunctionStore, userFunctionStore)
+var adminFunctionStore = Object.create(userFunctionStore)
 
 /*
 Create an `adminFactory` function that creates an object with all the same data fields (and default values) 
 as objects of the `userFactory` class, but without copying each data field individually.
 */
 function adminFactory(name, score) {
-  let obj = {};
-  Object.setPrototypeOf ( obj, userFactory.call(this , name, score))
-  return obj
+  let obj = userFactory (name, score) ;
+  Object.setPrototypeOf(obj , adminFunctionStore) ;
+  obj.type = "Admin" ;
+  return obj ;
 }
 
+adminFunctionStore.sharePublicMessage = function(){
+  console.log (`Welcome users!`)
+}
 
 /* Put code here for a method called sharePublicMessage*/
 
@@ -175,4 +178,4 @@ var adminFromFactory = adminFactory('Eva', 5);
 
 // /********* Uncomment these lines to test your work! *********/
 adminFromFactory.sayType() // -> Logs "I am a Admin"
-dminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
+adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
