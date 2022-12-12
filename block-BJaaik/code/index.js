@@ -5,13 +5,13 @@ class Person {
         this.gender = gender ;
     }
     eat(){
-
+        console.log (`${this.name} can eat`) ;
     }
     sleep(){
-
+        console.log (`${this.name} can sleep`) ;
     }
     walk(){
-
+        console.log (`${this.name} can walk`) ;
     }
 }
 
@@ -21,7 +21,7 @@ class Player extends Person {
         this.sportsName = sportsName ;
     }
     play(){
-
+        console.log (`${this.name} can play`) ;
     }
 }
 
@@ -31,7 +31,7 @@ class Teacher extends Person {
         this.instituteName = instituteName ;
     }
     teach(){
-        
+        console.log (`${this.name} can teach`) ;
     }
 }
 
@@ -41,7 +41,7 @@ class Artist extends Person {
         this.kind = kind ;
     }
     createArt(){
-        
+        console.log (`${this.name} can create art`) ;
     }
 }
 
@@ -51,6 +51,6 @@ class Cricketer extends Player {
         this.teamName = teamName ;
     }
     playCricket(){
-        
+        console.log (`${this.name} can play cricket`) ;
     }
 }
