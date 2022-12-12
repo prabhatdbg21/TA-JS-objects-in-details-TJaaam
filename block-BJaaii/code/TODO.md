@@ -37,8 +37,8 @@ class Stack {
     push(value){
         this.stack.push(value)
     }
-    pop(value){
-        this.stack.pop(value) 
+    pop(){
+        this.stack.pop() 
     }
     peek(value = this.stack.length -1){
         return this.stack[value]
@@ -56,6 +56,9 @@ class Stack {
         else {
             return false ;
         }
+    }
+    get length(){
+        return this.stack.length
     }
 }
 ```
@@ -107,8 +110,9 @@ class Queue {
     enqueue(item){
         this.queue.push(item)
     }
-    dequeue(item){
-        this.queue.pop(item)
+    dequeue(){
+        this.queue.splice(0,1) ;
+        return this.queue
     }
     displayQueue(){
         return String(this.queue)
@@ -126,6 +130,9 @@ class Queue {
         else {
             return false ;
         }
+    }
+    get length(){
+        return this.queue.length
     }
 }
 ```
