@@ -17,12 +17,12 @@ Book class will have the following methods:
 
 ```js
 class Book {
-    constructor ( title , category , author , finishedDate ) {
+    constructor ( title , category , author) {
         this.title = title ;
         this.category = category ;
         this.author = author ;
         this.isRead = false ;
-        this.finishedDate = finishedDate ;
+        this.finishedDate = null ;
     }
     markBookAsRead(){
         this.isRead = true ;
@@ -48,40 +48,41 @@ After creating the Book and BookList class create 5 book object and add it to li
 
 ```js
 class BookList {
-    constructor (index , array = []){
-        this.index = index ;
-        this.final = array ;
+    constructor (){
+        this.index = 0
+        this.books = [] ;
     }
-    add(arr){
-        arr.map((book) => {
-            this.final.push(book)
-        })
-        return this.final ;
+    add(books = []){
+        this.books = this.books.concat(books)
     }
     getCurrentBook(){
-        return this.final[this.index]
+        return this.books[this.index]
     }
     getNextBook(){
-        if (this.index == this.final.length -1){
-            alert (`${this.final[this.index]} is last book`)
-        }
-        else{
-            this.index = this.index + 1 ;
-            return this.final[this.index]  ;
-        }
+        this.index = this.index + 1 ;
+        return this.books[this.index]  ;
     }
     getPrevBook(){
-        if (this.index == 0){
-            alert (`${this.final[this.index]} is first book`)
-        }
-        else{
-            this.index = this.index - 1 ;
-            return this.final[this.index]  ;
-        }
+        this.index = this.index - 1 ;
+        return this.books[this.index]  ;
     }
     changeCurrentBook(currentIndex){
         this.index = currentIndex ;
-        return this.final[this.index]  ;
+        return this.index ;
     }
 }
+```
+
+```js
+let book1 = new Book ("harry potter" , "drama" , "prabhat") ;
+
+let book2 = new Book ("black purl" , "see" , "ankit") ;
+
+let library = new BookList() ;
+
+library.add([book1 , book2])
+
+library.getCurrentBook()
+
+library.getCurrentBook().markBookAsRead()
 ```
