@@ -28,6 +28,7 @@ class Book{
         this.text1 = text1 ;
         this.text2 = text2 ;
         this.text3 = text3 ;
+        this.read = "unread"
         this.id = `id-${Date.now()}`
     }
     createUI(){
