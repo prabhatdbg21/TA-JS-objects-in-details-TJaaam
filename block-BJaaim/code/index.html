@@ -3,19 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz</title>
+    <title>Quiz Application</title>
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/795fa69886.js" crossorigin="anonymous"></script>
   </head>
+ 
+ 
   <body>
     <div class="container">
-        <h1> Quiz  </h1>
-        <ul class="ul">
-        </ul>
-    </div>
+        <header>
+            <h1>JS Quiz</h1>
+            <p>Total question : 21</p>
+        </header>
+        <div class="quiz">
+            <!--
+            <form>
+                <fieldset name="fields">
+                    <legend>
+                        Please select your preferred contact method
+                    </legend>
+                    <div class="options">
+                        <div class="box">
+                            <input 
+                                type="radio"
+                                id="contactChoice1"
+                                name="contact"
+                                value="email"
+                                checked
+                            >
+                            <label for="contactChoice1"> Email </label>
+                        </div>
 
-    <script src="index.js"></script>
+                        <div class="box">
+                            <input 
+                                type="radio"
+                                id="contactChoice2"
+                                name="contact"
+                                value="phone"
+                            >
+                            <label for="contactChoice2"> Phone </label>
+                        </div>
+
+                        <div class="box">
+                            <input 
+                                type="radio"
+                                id="contactChoice3"
+                                name="contact"
+                                value="mail"
+                            >
+                            <label for="contactChoice3"> Mail </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+            -->
+        </div>
+        <footer>
+            <button class="prev"> Previous </button>
+            <button class="next"> Next </button>
+            <button class="show_result">show Result</button>
+        </footer>
+        <script src="data.js"></script> <!-- linking data.js file to html file-->
+        <script src="index.js"></script> <!-- linking index.js file to html file-->
+    </div>
   </body>
 </html>
